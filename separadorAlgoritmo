@@ -1,38 +1,82 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package javaapplication2;
 
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Aramuni
+ * @author maerzão
  */
- 
 public class JavaApplication2 {
 
-    /
-    public static int Vetor[] = new int[8];
+    /**
+     * @param args the command line arguments
+     */
+    public static int vetor[] = new int[4];
+    public static int vetor2[] = new int[4];
+    public static int result[] = new int[4];
     public static String binario;
+    public static String[] bin;
 
-    public static void entrada() {
+    public static void entrada(int vetors[]) {
 
         binario = JOptionPane.showInputDialog("Qual é o numero binario?"); // ARMAZENA O BINARIO EM UMA STRING
-        converter();
+        converter(vetors);
     }
 
-    public static void converter() {
-        String[] bin = binario.split("");  // USA O SPLIT PARA SEPARAR A STRING
+    public static void converter(int vetor[]) {
+        bin = binario.split("");  // USA O SPLIT PARA SEPARAR A STRING
 
-        for (int i = 0; i < bin.length; i++) {
-            Vetor[i] = Integer.parseInt(bin[i]); // PASSA O STRING PARA INT USANDO O FOR
-            System.out.println(Vetor[i]); // IMPRIME NA TELA O BINARIO SEPARADO EM CADA VETOR
+        for (int i = 3; i >=0 ; i--) {
+            vetor[i] = Integer.parseInt(bin[i]); // PASSA O STRING PARA INT USANDO O FOR
+            //   System.out.println(vetor[i]); // IMPRIME NA TELA O BINARIO SEPARADO EM CADA VETOR
+        }
+
+    }
+
+    public static void somar(int a[], int b[]) {
+        
+        int resto[] = new int[4];
+        
+        for (int i = 3; i >=0; i--) {
+
+            if (a[i] == 0 && b[i] == 0 || resto[i]==0 && a[i] ==0) {
+                result[i] = 0;
+                resto[i] = 0;
+            } else if (a[i] == 0 && b[i] == 1 || resto[i]==0 && a[i] ==1) {
+                result[i] = 1;
+                resto[i] = 0;
+            } else if (a[i] == 1 && b[i] == 0 || resto[i]==1 && a[i] ==0) {
+                result[i] = 1;
+                resto[i] = 0;
+            } else if (a[i] == 1 && b[i] == 1 || resto[i]==1 && a[i] ==1) {
+                result[i] = 0;
+                resto[i] = 1;
+            }
+
+        }
+        for (int i = 3; i >= 0; i--) {
+            System.out.print(resto[i]);
+            
         }
 
     }
 
     public static void main(String[] args) {
         // TODO code application logic here
-        entrada();
-
+        entrada(vetor);
+        entrada(vetor2);
+        somar(vetor, vetor2);
+        System.out.println("");
+        for (int i = 3; i >= 0; i--) {
+            System.out.print(result[i]);
+            
+        }
+        
     }
 
 }
