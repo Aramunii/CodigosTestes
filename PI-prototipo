@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Paulo + Maer
+ * @author paulão + Maer
  */
 public class JavaApplication3 {
 
@@ -56,7 +56,6 @@ public class JavaApplication3 {
     }
 
     public static String somar(int a[], int b[], int tipo) {
-        int resto;
         String resultado = "";
         for (int i = 3; i >= 0; i--) {
 
@@ -77,8 +76,6 @@ public class JavaApplication3 {
                             a[j] = 0; //se não achar vai trocando pra 0
                         }
                     }
-                } else {
-                    resto = 1; //se estiver na ultima casa no if lá encima, só salva o resto
                 }
             }
 
@@ -108,8 +105,6 @@ public class JavaApplication3 {
                             a[j] = 0; //se não achar vai trocando pra 0
                         }
                     }
-                } else {
-                    resto = 1; //se estiver na ultima casa no if lá encima, só salva o resto
                 }
             } else if (a[i] == 1 && b[i] == 0) {
                 result[i] = 1;
@@ -134,7 +129,6 @@ public class JavaApplication3 {
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     public static String somarC1(int a[], int tipo) {
-        int resto = 0;
         int b[] = {0, 0, 0, 1};
         String resultado = "";
         for (int i = 3; i >= 0; i--) {
@@ -156,10 +150,7 @@ public class JavaApplication3 {
                             a[j] = 0; //se não achar vai trocando pra 0
                         }
                     }
-                } else {
-                    resto = 1; //se estiver na ultima casa no if lá encima, só salva o resto
-
-                }
+                } 
             }
 
         }
